@@ -19,28 +19,19 @@ public class GetCelebrityNamesTest {
     public void testInitializeDriver() {
         System.setProperty(safariWebDriver, safariWebDriverPath);
         safariDriver = new SafariDriver();
-        safariDriver.navigate().to("https://www.saucedemo.com");
+        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Eden_Hazard");
         safariDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testClickButton(){
-        WebElement m=safariDriver.
-                findElement(By.id("login-button"));
-        m.click();
+    public void getAllNames(){
+
+        String text = safariDriver.findElement(By.className("mw-page-title-main")).getText();
+        System.out.println(text);
+
     }
 
-    @Test
-    public void testWriteInForm(){
-        safariDriver.findElement(By.id("user-name")).sendKeys("Shirwac");
-    }
 
-    @Test
-    public void testGettingTextFromWebsite(){
-        String expectedText = "Accepted usernames are:standard_userlocked_out_userproblem_userperformance_glitch_user";
-        String text = safariDriver.findElement(By.id("login_credentials")).getText();
-        Assert.assertEquals(expectedText, text);
-    }
 
 
     @AfterEach
