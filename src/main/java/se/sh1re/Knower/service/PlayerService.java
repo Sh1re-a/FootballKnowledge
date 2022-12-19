@@ -17,17 +17,17 @@ public class PlayerService {
 
 
 
-    public void initializeDriver(String webSiteURL) {
+    public void initializeDriver(String player) {
         System.setProperty(safariWebDriver, safariWebDriverPath);
         safariDriver = new SafariDriver();
-        safariDriver.navigate().to(webSiteURL);
+        safariDriver.navigate().to(player);
         safariDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
 
 
-    public String getPersonName() {
-        String name = safariDriver.findElement(By.className("info-table__content info-table__content--bold")).getText();
+    public String getPersonName(String className) {
+        String name = safariDriver.findElement(By.className(className)).getText();
         return name;
     }
 
