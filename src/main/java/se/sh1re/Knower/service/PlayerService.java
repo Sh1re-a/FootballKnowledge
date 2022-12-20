@@ -27,7 +27,7 @@ public class PlayerService {
 
 
     public String getPersonName(String className) {
-        String name = safariDriver.findElement(By.className(className)).getText();
+        String name = safariDriver.findElement(new By.ByXPath("/html[@class='hydrated']/body/div[@id='main']/main/div[@class='row']/div[@class='large-8 columns']/div[@class='box viewport-tracking'][1]/div[@class='row collapse']/div[@class='large-6 large-pull-6 small-12 columns spielerdatenundfakten']/div[@class='info-table info-table--right-space']/span[@class='info-table__content info-table__content--bold'][1]")).getText();
         return name;
     }
 
