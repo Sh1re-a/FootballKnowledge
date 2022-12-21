@@ -1,5 +1,7 @@
 package se.sh1re.Knower.models;
 
+import java.util.Arrays;
+
 public class Player {
 
     private String name;
@@ -7,17 +9,18 @@ public class Player {
     private String birth;
     private int age;
     private double height;
-    private String foot;
-    private String club;
+    private String currentClub;
+    private String[] positions;
 
-    public Player(String name, String placeOfBirth, String birth, int age, double height, String foot, String club) {
+    public Player(String name, String placeOfBirth, String birth, int age, double height,
+                  String currentClub, String[] positions) {
         this.name = name;
         this.placeOfBirth = placeOfBirth;
         this.birth = birth;
         this.age = age;
         this.height = height;
-        this.foot = foot;
-        this.club = club;
+        this.currentClub = currentClub;
+        this.positions = positions;
     }
 
     public String getName() {
@@ -60,34 +63,33 @@ public class Player {
         this.height = height;
     }
 
-    public String getFoot() {
-        return foot;
+
+    public String getCurrentClub() {
+        return currentClub;
     }
 
-    public void setFoot(String foot) {
-        this.foot = foot;
+    public void setCurrentClub(String currentClub) {
+        this.currentClub = currentClub;
     }
 
-    public String getClub() {
-        return club;
+    public String[] getPositions() {
+        return positions;
     }
 
-    public void setClub(String club) {
-        this.club = club;
+    public void setPositions(String[] positions) {
+        this.positions = positions;
     }
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Player{" +
                 "name='" + name + '\'' +
                 ", placeOfBirth='" + placeOfBirth + '\'' +
                 ", birth='" + birth + '\'' +
                 ", age=" + age +
                 ", height=" + height +
-                ", foot='" + foot + '\'' +
-                ", club='" + club + '\'' +
+                ", currentClub='" + currentClub + '\'' +
+                ", positions=" + Arrays.toString(positions) +
                 '}';
     }
-
-
 }
