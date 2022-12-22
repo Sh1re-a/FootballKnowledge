@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Player {
 
     private String name;
+    private String fullName;
     private String placeOfBirth;
     private String birth;
     private int age;
@@ -12,9 +13,10 @@ public class Player {
     private String currentClub;
     private String[] positions;
 
-    public Player(String name, String placeOfBirth, String birth, int age, double height,
+    public Player(String name,String fullName, String placeOfBirth, String birth, int age, double height,
                   String currentClub, String[] positions) {
         this.name = name;
+        this.fullName = fullName;
         this.placeOfBirth = placeOfBirth;
         this.birth = birth;
         this.age = age;
@@ -29,6 +31,14 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPlaceOfBirth() {
@@ -84,6 +94,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", placeOfBirth='" + placeOfBirth + '\'' +
                 ", birth='" + birth + '\'' +
                 ", age=" + age +

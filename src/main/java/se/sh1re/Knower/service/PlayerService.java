@@ -12,11 +12,12 @@ public class PlayerService {
     private static SafariDriver safariDriver;
 
 
-    public void initializeDriver(String player) {
+    public SafariDriver safariDriver(String player) {
         System.setProperty(safariWebDriver, safariWebDriverPath);
         safariDriver = new SafariDriver();
         safariDriver.navigate().to("https://en.wikipedia.org/wiki/" + player);
         safariDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        return safariDriver;
     }
 
 
