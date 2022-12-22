@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.safari.SafariDriver;
-import se.sh1re.Knower.models.Player;
+
 
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,14 +18,14 @@ class PlayerServiceTest {
     private static final String safariWebDriverPath = "/usr/bin/safaridriver";
     private static SafariDriver safariDriver;
 
-    private Player player;
+
 
 
     @BeforeEach
     void setUp() {
         System.setProperty(safariWebDriver, safariWebDriverPath);
         safariDriver = new SafariDriver();
-        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Lionel_Messi");
+        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Cristiano_Ronaldo");
         safariDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         //  safariDriver.findElement(By.xpath("//*[@id="notice"]/div[3]/div[2]/button")).click();
@@ -63,7 +63,8 @@ class PlayerServiceTest {
         String personFullName = safariDriver.findElement(By.xpath(personFullNameXPath)).getText();
         String expectedPersonFullName = "Cristiano Ronaldo dos Santos Aveiro";
 
-        personFullName = personFullName.replaceAll("[^a-zA-Z0-9]", " ");
+        personFullName = personFullName.replace("[", "");
+        personFullName = personFullName.replace("]", "");
         personFullName = personFullName.replaceAll("[0-9]","");
         personFullName =  personFullName.strip();
 
