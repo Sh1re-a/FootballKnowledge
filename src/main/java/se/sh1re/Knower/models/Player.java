@@ -12,9 +12,10 @@ public class Player {
     private double height;
     private String currentClub;
     private String[] positions;
+    private int shirtNumber;
 
-    public Player(String name,String fullName, String placeOfBirth, String birth, int age, double height,
-                  String currentClub, String[] positions) {
+    public Player(String name, String fullName, String placeOfBirth, String birth, int age,
+                  double height, String currentClub, String[] positions, int shirtNumber) {
         this.name = name;
         this.fullName = fullName;
         this.placeOfBirth = placeOfBirth;
@@ -23,6 +24,7 @@ public class Player {
         this.height = height;
         this.currentClub = currentClub;
         this.positions = positions;
+        this.shirtNumber = shirtNumber;
     }
 
     public String getName() {
@@ -90,6 +92,14 @@ public class Player {
         this.positions = positions;
     }
 
+    public int getShirtNumber() {
+        return shirtNumber;
+    }
+
+    public void setShirtNumber(int shirtNumber) {
+        this.shirtNumber = shirtNumber;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
@@ -101,6 +111,7 @@ public class Player {
                 ", height=" + height +
                 ", currentClub='" + currentClub + '\'' +
                 ", positions=" + Arrays.toString(positions) +
+                ", shirtNumber=" + shirtNumber +
                 '}';
     }
 }

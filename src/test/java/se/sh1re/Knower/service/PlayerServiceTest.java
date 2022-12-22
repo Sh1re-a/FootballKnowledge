@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.safari.SafariDriver;
+import se.sh1re.Knower.models.Player;
+
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,12 +18,14 @@ class PlayerServiceTest {
     private static final String safariWebDriverPath = "/usr/bin/safaridriver";
     private static SafariDriver safariDriver;
 
+    private Player player;
+
 
     @BeforeEach
     void setUp() {
         System.setProperty(safariWebDriver, safariWebDriverPath);
         safariDriver = new SafariDriver();
-        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Ngolo_Kante");
+        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Lionel_Messi");
         safariDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         //  safariDriver.findElement(By.xpath("//*[@id="notice"]/div[3]/div[2]/button")).click();
@@ -50,6 +54,7 @@ class PlayerServiceTest {
         String expectedPersonName = "Cristiano Ronaldo";
         System.out.println(personName);
         assertEquals(expectedPersonName, personName);
+
     }
 
     @Test
@@ -165,6 +170,17 @@ class PlayerServiceTest {
             assertNotEquals(expectedInformation, playersCurrentClubExists);
         }
 
+    }
+
+    @Test
+    void getPlayersShirtNumber(){ //För messi specifikt
+        String playersShirtNumberXPath = "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[10]/td";
+        int expectedShirtNumber = 30;
+        String playersShirtNumber = safariDriver.findElement(By.xpath(playersShirtNumberXPath)).getText();
+        playersShirtNumber = playersShirtNumber.strip();
+        int shirtNumber = Integer.parseInt(playersShirtNumber);
+
+        assertEquals(expectedShirtNumber, shirtNumber);
     }
 
 
