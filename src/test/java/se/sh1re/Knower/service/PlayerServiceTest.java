@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.safari.SafariDriver;
+
+
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,11 +19,13 @@ class PlayerServiceTest {
     private static SafariDriver safariDriver;
 
 
+
+
     @BeforeEach
     void setUp() {
         System.setProperty(safariWebDriver, safariWebDriverPath);
         safariDriver = new SafariDriver();
-        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Ngolo_Kante");
+        safariDriver.navigate().to("https://en.wikipedia.org/wiki/Cristiano_Ronaldo");
         safariDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         //  safariDriver.findElement(By.xpath("//*[@id="notice"]/div[3]/div[2]/button")).click();
@@ -50,6 +54,7 @@ class PlayerServiceTest {
         String expectedPersonName = "Cristiano Ronaldo";
         System.out.println(personName);
         assertEquals(expectedPersonName, personName);
+
     }
 
     @Test
@@ -58,7 +63,8 @@ class PlayerServiceTest {
         String personFullName = safariDriver.findElement(By.xpath(personFullNameXPath)).getText();
         String expectedPersonFullName = "Cristiano Ronaldo dos Santos Aveiro";
 
-        personFullName = personFullName.replaceAll("[^a-zA-Z0-9]", " ");
+        personFullName = personFullName.replace("[", "");
+        personFullName = personFullName.replace("]", "");
         personFullName = personFullName.replaceAll("[0-9]","");
         personFullName =  personFullName.strip();
 
@@ -165,6 +171,17 @@ class PlayerServiceTest {
             assertNotEquals(expectedInformation, playersCurrentClubExists);
         }
 
+    }
+
+    @Test
+    void getPlayersShirtNumber(){ //För messi specifikt
+        String playersShirtNumberXPath = "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[10]/td";
+        int expectedShirtNumber = 30;
+        String playersShirtNumber = safariDriver.findElement(By.xpath(playersShirtNumberXPath)).getText();
+        playersShirtNumber = playersShirtNumber.strip();
+        int shirtNumber = Integer.parseInt(playersShirtNumber);
+
+        assertEquals(expectedShirtNumber, shirtNumber);
     }
 
 
