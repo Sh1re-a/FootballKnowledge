@@ -54,7 +54,7 @@ class playerControllerTest {
         safari = new Safari();
         Player player = new Player();
         playerService = new PlayerService();
-        safari.getDriver().navigate().to("https://en.wikipedia.org/wiki/" + "Eden_Hazard");
+        safari.getDriver().navigate().to("https://en.wikipedia.org/wiki/" + "Zlatan_Ibrahimovic");
         safari.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         String NameToFix = safari.getDriver().findElement(By.xpath(XPath.name.toString())).getText();
 
