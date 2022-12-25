@@ -20,6 +20,8 @@ public class PlayerService {
 
     public PlayerService(){};
 
+
+
     public String getPersonName(String personName) {
         if(personName == null){
             return "not working";
@@ -87,7 +89,7 @@ public class PlayerService {
                 }
             }
         }
-        System.out.println(playerPositionsRemovedOfWhiteSpace);
+
         String[] playersPositionsArray = playerPositionsRemovedOfWhiteSpace.split(",");
         return playersPositionsArray;
     }

@@ -1,4 +1,4 @@
-package se.sh1re.Knower.models;
+package se.sh1re.Knower.models.model;
 
 import java.util.List;
 

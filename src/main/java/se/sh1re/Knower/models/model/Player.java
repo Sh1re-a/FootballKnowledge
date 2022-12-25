@@ -1,21 +1,33 @@
-package se.sh1re.Knower.models;
+package se.sh1re.Knower.models.model;
 
-import org.springframework.stereotype.Component;
 
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-@Component
+@Entity
 public class Player {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
     private String name;
+    @Column
     private String fullName;
+
     private String[] placeOfBirth;
+    @Column
     private LocalDate birth;
+    @Column
     private int age;
+    @Column
     private double height;
+    @Column
     private String currentClub;
+
     private String[] positions;
+    @Column
     private int shirtNumber;
 
     public Player() {
