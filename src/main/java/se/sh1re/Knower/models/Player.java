@@ -1,8 +1,11 @@
 package se.sh1re.Knower.models;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.Arrays;
 
+@Component
 public class Player {
 
     private String name;
@@ -106,16 +109,16 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", placeOfBirth=" + Arrays.toString(placeOfBirth) +
-                ", birth=" + birth +
-                ", age=" + age +
-                ", height=" + height +
-                ", currentClub='" + currentClub + '\'' +
-                ", positions=" + Arrays.toString(positions) +
-                ", shirtNumber=" + shirtNumber +
+        return "Player{" + System.lineSeparator() +
+                "name='" + name + '\'' + System.lineSeparator() +
+                "fullName='" + fullName + '\'' + System.lineSeparator() +
+                "placeOfBirth=" + Arrays.toString(placeOfBirth) + System.lineSeparator() +
+                "birth=" + birth + System.lineSeparator() +
+                "age=" + age + System.lineSeparator() +
+                "height=" + height + System.lineSeparator() +
+                "currentClub='" + currentClub + '\'' + System.lineSeparator() +
+                "positions=" + Arrays.toString(positions) + System.lineSeparator() +
+                "shirtNumber=" + shirtNumber + System.lineSeparator() +
                 '}';
     }
 }
