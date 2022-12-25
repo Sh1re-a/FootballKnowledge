@@ -113,6 +113,9 @@ class PlayerServiceTest {
         String playerPositionsXPath = "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[7]/td";
         String[] expectedPlayerPositions = {"Forward"};
         String playerPositions = safariDriver.findElement(By.xpath(playerPositionsXPath)).getText();
+        playerPositions = playerPositions.replace("[", "");
+        playerPositions = playerPositions.replace("]", "");
+        playerPositions = playerPositions.replaceAll("[0-9]","");
         playerPositions = playerPositions.strip();
         String playerPositionsRemovedOfWhiteSpace = playerPositions;
 

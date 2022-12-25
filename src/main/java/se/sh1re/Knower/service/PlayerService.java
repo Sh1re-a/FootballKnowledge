@@ -1,16 +1,13 @@
 package se.sh1re.Knower.service;
 
-import net.bytebuddy.asm.Advice;
-import org.openqa.selenium.By;
-import org.openqa.selenium.safari.SafariDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
-import se.sh1re.Knower.Driver.Safari;
+import se.sh1re.Knower.driver.Safari;
 
 
 import java.time.LocalDate;
-import java.util.concurrent.TimeUnit;
+import java.time.Period;
+
 @Service
 @Configurable
 public class PlayerService {
@@ -18,7 +15,7 @@ public class PlayerService {
     private static final String safariWebDriver = "webdriver.safari.driver";
     private static final String safariWebDriverPath = "/usr/bin/safaridriver";
 
-    @Autowired
+
     private Safari safari;
 
     public PlayerService(){};
@@ -40,7 +37,7 @@ public class PlayerService {
 
         return personFullName;
     }
-    public LocalDate getPersonAgeAndBirthDate(String personBirthDate) {
+    public LocalDate getPersonBirthDate(String personBirthDate) {
         personBirthDate = personBirthDate.replaceAll("\\s+","");
         personBirthDate = personBirthDate.replace("\u00a0","");
 
@@ -59,17 +56,25 @@ public class PlayerService {
         return playerBirth;
     }
 
+    public int getPersonAge (LocalDate playerBirth){
+        return Period.between(playerBirth, LocalDate.now()).getYears();
+    }
+
+
+
     public double getPlayerHeight(String playerHeight) {
 
         playerHeight = playerHeight.replace("\u00a0","");
         playerHeight = playerHeight.substring(0,5);
         playerHeight = playerHeight.strip();
-        System.out.println(playerHeight);
         double playerHeightConvert = Double.parseDouble(playerHeight);
         return playerHeightConvert;
     }
 
     public String[] getPlayersPositions(String playerPositions) {
+        playerPositions = playerPositions.replace("[", "");
+        playerPositions = playerPositions.replace("]", "");
+        playerPositions = playerPositions.replaceAll("[0-9]","");
         playerPositions = playerPositions.strip();
         String playerPositionsRemovedOfWhiteSpace = playerPositions;
 
@@ -77,7 +82,7 @@ public class PlayerService {
 
             for (int i = 0; i < playerPositions.length(); i++) {
                 if (playerPositions.charAt(i) == ',') {
-                    playerPositionsRemovedOfWhiteSpace = playerPositions.substring(0, i + 1) + playerPositions.substring(i + 2);
+                    playerPositionsRemovedOfWhiteSpace = playerPositions.substring(0, i+1) + playerPositions.substring(i + 2);
                     playerPositions = playerPositions.substring(i + 1, i + 2);
                 }
             }
