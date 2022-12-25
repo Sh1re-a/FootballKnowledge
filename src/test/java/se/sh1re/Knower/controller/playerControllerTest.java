@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 import se.sh1re.Knower.driver.Safari;
 import se.sh1re.Knower.Path.XPath;
-import se.sh1re.Knower.models.Player;
+import se.sh1re.Knower.models.model.Player;
 import se.sh1re.Knower.service.PlayerService;
 
 import java.util.concurrent.TimeUnit;
