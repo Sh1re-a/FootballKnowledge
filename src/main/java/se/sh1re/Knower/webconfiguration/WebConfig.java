@@ -1,4 +1,4 @@
-package com.group8.bookingapp.webconfiguration;
+package se.sh1re.Knower.webconfiguration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
