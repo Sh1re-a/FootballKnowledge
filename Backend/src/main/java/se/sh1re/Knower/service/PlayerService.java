@@ -115,7 +115,6 @@ public class PlayerService {
     
     public String[] getPlayersBirthOfPlace(String playersBirthOfPlace) {
 
-        playersBirthOfPlace = playersBirthOfPlace.replaceAll("\\s+","");
         playersBirthOfPlace = playersBirthOfPlace.replace("\u00a0","");
         playersBirthOfPlace = playersBirthOfPlace.replace("]", "");
         playersBirthOfPlace = playersBirthOfPlace.replace("[" , "");
@@ -124,7 +123,11 @@ public class PlayerService {
         playersBirthOfPlace = playersBirthOfPlace.strip();
 
 
+
         String [] playerBirthOfPlaceArrays = playersBirthOfPlace.split(",");
+        for(int i = 0; i < playerBirthOfPlaceArrays.length; i++){
+            playerBirthOfPlaceArrays[i] = playerBirthOfPlaceArrays[i].strip();
+        }
         return playerBirthOfPlaceArrays;
     }
 
