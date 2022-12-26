@@ -6,9 +6,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
+import se.sh1re.Knower.Path.PathValidator;
+import se.sh1re.Knower.Path.XPath;
 
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +22,7 @@ class PlayerServiceTest {
     private static final String safariWebDriver = "webdriver.safari.driver";
     private static final String safariWebDriverPath = "/usr/bin/safaridriver";
     private static SafariDriver safariDriver;
+
 
 
 
@@ -47,10 +53,38 @@ class PlayerServiceTest {
     }
 
 
+
+
+    String validateInformation(String path) {
+        WebElement self = safariDriver.findElement(By.xpath(PathValidator.tablePath.toString() + path));
+        WebElement ancestor = safariDriver.findElement(By.xpath(PathValidator.tablePath.toString()));
+        String broder =  getXpath(self, ancestor );
+        return PathValidator.tablePath.toString() + broder;
+    }
+
+
+
+    public static String getXpath(WebElement self, WebElement ancestor){
+        int a = ancestor.findElements(By.xpath("./ancestor::*")).size();
+        int s = self.findElements(By.xpath("./ancestor::*")).size();
+        String path = "";
+        WebElement current = self;
+        for(int i = s - a; i > 0; i--){
+            String tag = current.getTagName();
+            int lvl = current.findElements(By.xpath("./preceding-sibling::" + tag)).size() + 1;
+            path = String.format("/%s[%d]%s", tag, lvl, path);
+            current = current.findElement(By.xpath("./parent::*"));
+        }
+        return path;
+    }
+
+
+
     @Test
     void getPersonName() {
         String personNameXPath = "//*[@id=\"firstHeading\"]/span";
         String personName = safariDriver.findElement(By.xpath(personNameXPath)).getText();
+
         String expectedPersonName = "Cristiano Ronaldo";
         System.out.println(personName);
         assertEquals(expectedPersonName, personName);
@@ -59,8 +93,10 @@ class PlayerServiceTest {
 
     @Test
     void getPersonFullName() {
-        String personFullNameXPath = "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[3]/td";
+        String personFullNameXPath = validateInformation(PathValidator.FullName.toString());
+        personFullNameXPath = personFullNameXPath.replaceAll("TH","TD");
         String personFullName = safariDriver.findElement(By.xpath(personFullNameXPath)).getText();
+
         String expectedPersonFullName = "Cristiano Ronaldo dos Santos Aveiro";
 
         personFullName = personFullName.replace("[", "");
