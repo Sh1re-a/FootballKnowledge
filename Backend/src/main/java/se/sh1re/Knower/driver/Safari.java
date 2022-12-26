@@ -1,9 +1,11 @@
 package se.sh1re.Knower.driver;
 
 import org.openqa.selenium.safari.SafariDriver;
+import org.springframework.stereotype.Service;
 
 
 public class Safari {
+
     public SafariDriver safariDriver;
 
 

@@ -1,6 +1,8 @@
 package se.sh1re.Knower.Path;
 
 public enum XPath {
+
+
      name {
          public String toString() {
              return "//*[@id=\"firstHeading\"]/span";

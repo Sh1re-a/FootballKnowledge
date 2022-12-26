@@ -7,6 +7,7 @@ import se.sh1re.Knower.driver.Safari;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Arrays;
 
 @Service
 @Configurable
@@ -43,11 +44,21 @@ public class PlayerService {
         personBirthDate = personBirthDate.replaceAll("\\s+","");
         personBirthDate = personBirthDate.replace("\u00a0","");
 
+        int firstCheck = 0;
+        int secondCheck = 0;
         for(int i = 0; i < personBirthDate.length(); i++){
+            if(personBirthDate.charAt(i) == '('){
+                firstCheck = i;
+
+            }
             if(personBirthDate.charAt(i) == ')'){
-                personBirthDate = personBirthDate.substring(1, i);
+                secondCheck = i;
+                personBirthDate = personBirthDate.substring(firstCheck + 1, secondCheck);
+                break;
             }
         }
+
+
 
         String[] birthArray = personBirthDate.split("-");
         int[] birthArrayConverted = new int[birthArray.length];
@@ -67,7 +78,14 @@ public class PlayerService {
     public double getPlayerHeight(String playerHeight) {
 
         playerHeight = playerHeight.replace("\u00a0","");
-        playerHeight = playerHeight.substring(0,5);
+
+        for(int i = 0; i < playerHeight.length(); i++){
+            if(playerHeight.charAt(i) == '.'){
+              playerHeight = playerHeight.substring(i-1, i+3);
+              break;
+            }
+        }
+
         playerHeight = playerHeight.strip();
         double playerHeightConvert = Double.parseDouble(playerHeight);
         return playerHeightConvert;
@@ -111,12 +129,14 @@ public class PlayerService {
     }
 
     
-    public String getPlayersCurrentClub(String playersCurrentClubExists, String playersCurrentClub ) { //Need some work on
-        String expectedInformation = "Club information";
-        playersCurrentClubExists = playersCurrentClubExists.strip();
+    public String getPlayersCurrentClub(String playersCurrentClub ) { //Need some work on
 
-        if(playersCurrentClubExists.equals(expectedInformation)) {
+
+        String error = "Element doesn't exist";
+
+        if(!playersCurrentClub.equals(error)) {
             playersCurrentClub = playersCurrentClub.strip();
+
             return playersCurrentClub;
         }
         else {
@@ -132,6 +152,14 @@ public class PlayerService {
 
         return shirtNumber;
     }
+
+    public String setArrayToStringForDB(String[] array){
+       String stringToReturn = Arrays.toString(array);
+       return stringToReturn;
+    }
+
+
+
 
 
 

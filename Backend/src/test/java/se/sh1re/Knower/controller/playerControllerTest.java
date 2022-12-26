@@ -51,7 +51,6 @@ class playerControllerTest {
         System.setProperty(safariWebDriver, safariWebDriverPath);
 
         safari = new Safari();
-        Player player = new Player();
         playerService = new PlayerService();
         safari.getDriver().navigate().to("https://en.wikipedia.org/wiki/" + "Joshua_Kimmich");
         safari.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
@@ -68,7 +67,6 @@ class playerControllerTest {
         player.setBirth(playerService.getPersonBirthDate(safari.getDriver().findElement(By.xpath(XPath.birthDate.toString())).getText()));
         player.setAge(playerService.getPersonAge(player.getBirth()));
         player.setCurrentClub(playerService.getPlayersCurrentClub(safari.getDriver()
-                .findElement(By.xpath(XPath.currentClubExits.toString())).getText(),safari.getDriver()
                 .findElement(By.xpath(XPath.currentClub.toString())).getText()));
 
         player.setShirtNumber(playerService.getPlayersShirtNumber(safari.getDriver()

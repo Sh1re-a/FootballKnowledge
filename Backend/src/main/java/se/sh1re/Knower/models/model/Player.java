@@ -15,7 +15,7 @@ public class Player {
     private String name;
     @Column
     private String fullName;
-
+    @Transient
     private String[] placeOfBirth;
     @Column
     private LocalDate birth;
@@ -25,10 +25,15 @@ public class Player {
     private double height;
     @Column
     private String currentClub;
-
+    @Transient
     private String[] positions;
     @Column
     private int shirtNumber;
+    @Column(name = "place_of_birth")
+    private String DatabasePlaceOfBirth;
+    @Column(name = "positions")
+    private String DatabasePositions;
+
 
     public Player() {
     }
@@ -117,6 +122,24 @@ public class Player {
 
     public void setShirtNumber(int shirtNumber) {
         this.shirtNumber = shirtNumber;
+    }
+
+    public String getDatabasePlaceOfBirth() {
+        return DatabasePlaceOfBirth;
+    }
+
+    public String getDatabasePositions() {
+        return DatabasePositions;
+    }
+
+    public void setDatabasePlaceOfBirth(String databasePlaceOfBirth) {
+        DatabasePlaceOfBirth = databasePlaceOfBirth;
+    }
+
+
+
+    public void setDatabasePositions(String databasePositions) {
+        DatabasePositions = databasePositions;
     }
 
     @Override
