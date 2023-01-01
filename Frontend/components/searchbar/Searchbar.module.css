@@ -1,0 +1,49 @@
+.searchbar{
+    
+    width: 322px;
+    height: 58px;
+   
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: #7000FF;
+    border-radius: 40px;
+    
+    display: flex;
+    align-self: center;
+    
+    }
+
+    .FaSearch {
+        color: #7000FF;
+        justify-self: center;
+        align-self: center;
+        margin-left: 2%;
+        width: 17%;
+        height: 80%;
+        background-color: #E3E5EF;
+        border-radius: 50%;
+        border: 3px solid #E3E5EF;
+        padding: 8px;
+        
+    
+    }
+
+    .searchbar input {
+        background: none;
+        border: none;
+        height: inherit;
+        width: inherit;
+        border-radius: 20px;
+        color: white;
+        font-size: inherit;
+        font-family: Comfortaa;
+        font-weight: 700;
+        outline: none;
+        margin-left: 2%;
+    }
+
+    .searchbar input::placeholder {
+        color: white;
+        opacity: 0.4;
+        font-style: italic;
+        font-weight: 300;
+    }
