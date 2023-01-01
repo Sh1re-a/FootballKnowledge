@@ -1,9 +1,23 @@
 import React from 'react'
+import styles from './Navbar.module.css'
+import { FiMenu } from 'react-icons/fi'
 
-function Navbar() {
+export const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div className={styles.navbar}>
+      <div className={styles.header}>
+      <img src="./KnowledgeLeagueLogo.svg"></img>
+      <div>Knowledge <span>League</span> </div>
+      </div>
+      <button className={styles.loginButton}>Login</button>
+      <button className={styles.signupButton}>Sign Up</button>
+      <div className={styles.menu}>
+        <FiMenu className={styles.menuBtn}/>
+      </div>
+    </div>
   )
 }
 
-export default Navbar
+
+
+

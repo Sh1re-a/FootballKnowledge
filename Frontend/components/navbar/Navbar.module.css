@@ -1,0 +1,75 @@
+.navbar {
+    background-color: #1B256D;
+    width: 100%;
+    height: 61px;
+    display: flex;
+    justify-content: space-between;
+    font-family: open sans;
+    padding: 17px;
+    font-size: 17px;
+    
+    
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    font-family: Comfortaa;
+    
+}
+
+.header img {
+    height: 32px;
+    width: 32px;
+}
+
+.header div {
+    color:#C8B100;
+    
+}
+
+.header span {
+    color: white;
+}
+
+.loginButton {
+    font-family: inherit;
+    align-self: center;
+    color: white;
+    font-size: inherit;
+    border: none;
+    background: none;
+    font-weight: 300;
+    
+}
+
+.loginButton:hover {
+    color:#C8B100;
+}
+
+.signupButton {
+    align-self: center;
+    color: white;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 300;
+    border: 1px solid white;
+    background: none;
+    height: 33px;
+    width: 82px;
+    border-radius: 5px;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuBtn {
+
+    color: white;
+    height: 30px;
+    width: 30px;
+}
