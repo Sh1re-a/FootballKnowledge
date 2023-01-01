@@ -8,8 +8,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   height: 100vh;
   background: #E3E5EF;
-  display: flex;
-  flex-direction: column;
+  
   
   
 }
@@ -22,6 +21,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10vh;
+}
+
+
 
 /*
 @media (prefers-color-scheme: dark) {
