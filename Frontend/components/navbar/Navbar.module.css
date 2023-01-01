@@ -6,11 +6,27 @@
     justify-content: space-between;
     font-family: open sans;
     padding: 17px;
-    font-size: 17px;
+    position: fixed;
+    overflow: hidden;
+    z-index: 2;
     
+
     
 }
+
+
+.navbar img{
+    z-index: 1;
+   position: absolute;
+   opacity: 0.3;
+   left: 25%;
+   top: -100%;
+   width: 200px;
+   height: 200px;
+
+}
 .header {
+    z-index: inherit;
     display: flex;
     align-items: center;
     gap: 2%;
@@ -29,10 +45,12 @@
 }
 
 .header span {
+    
     color: white;
 }
 
 .loginButton {
+    z-index: inherit;
     font-family: inherit;
     align-self: center;
     color: white;
@@ -40,14 +58,14 @@
     border: none;
     background: none;
     font-weight: 300;
+    margin-left: 5%;
     
 }
 
-.loginButton:hover {
-    color:#C8B100;
-}
 
 .signupButton {
+    z-index: inherit;
+    margin-right: 5%;
     align-self: center;
     color: white;
     font-size: inherit;
@@ -55,20 +73,21 @@
     font-weight: 300;
     border: 1px solid white;
     background: none;
-    height: 33px;
-    width: 82px;
+    height: 30px;
+    width: 60x;
     border-radius: 5px;
 }
 
 
 .menu {
+    z-index: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .menuBtn {
-
+    z-index: inherit;
     color: white;
     height: 30px;
     width: 30px;

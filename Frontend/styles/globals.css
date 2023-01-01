@@ -7,6 +7,11 @@ body {
   font-family: 'Comfortaa', cursive;
   font-family: 'Open Sans', sans-serif;
   height: 100vh;
+  background: #E3E5EF;
+  display: flex;
+  flex-direction: column;
+  
+  
 }
 
 a {
@@ -18,12 +23,14 @@ a {
   box-sizing: border-box;
 }
 
+/*
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
     color: white;
-    background: black;
+    
   }
 }
+*/
