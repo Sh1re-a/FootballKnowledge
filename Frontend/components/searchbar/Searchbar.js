@@ -6,7 +6,7 @@ const Searchbar = () => {
   return (
     <form className={styles.searchbar}>
         <FaSearch className={styles.FaSearch}/>
-    <input type="text"/>
+    <input type="text" placeholder='Lionel Messi' />
     
     </form>
   )
