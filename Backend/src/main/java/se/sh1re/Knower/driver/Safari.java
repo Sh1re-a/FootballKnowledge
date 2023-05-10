@@ -1,23 +1,25 @@
 package se.sh1re.Knower.driver;
 
-import org.openqa.selenium.safari.SafariDriver;
-import org.springframework.stereotype.Service;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public class Safari {
 
-    public SafariDriver safariDriver;
+    //public SafariDriver safariDriver;
 
+    public ChromeDriver safariDriver;
 
+    public Safari(ChromeOptions options) {
 
-    public Safari() {
-        safariDriver = new SafariDriver();
+        safariDriver = new ChromeDriver(options);
     }
 
-    public SafariDriver getDriver() {
+    public ChromeDriver getDriver() {
 
         if(safariDriver == null){
-            safariDriver = new SafariDriver();
+            safariDriver = new ChromeDriver();
             return safariDriver;
         }
         else{

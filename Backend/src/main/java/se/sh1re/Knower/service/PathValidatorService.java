@@ -3,11 +3,9 @@ package se.sh1re.Knower.service;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
-import se.sh1re.Knower.Path.PathValidator;
-import se.sh1re.Knower.Path.XPath;
+import se.sh1re.Knower.models.Path.PathValidator;
 import se.sh1re.Knower.driver.Safari;
 @Service
 @Configurable
@@ -25,6 +23,7 @@ public class PathValidatorService {
             WebElement ancestor = safari.getDriver().findElement(By.xpath(PathValidator.tablePath.toString()));
             String XpathInformation = getXpath(self, ancestor);
             XpathInformation = XpathInformation.replaceAll("TH", "TD");
+            XpathInformation = XpathInformation.replaceAll("th", "td");
             int counter = 0;
             for(int i = 0; i < XpathInformation.length(); i++){
                 if(XpathInformation.charAt(i) == ']'){

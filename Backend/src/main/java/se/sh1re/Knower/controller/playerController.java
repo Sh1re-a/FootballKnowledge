@@ -4,16 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import se.sh1re.Knower.Path.PathValidator;
-import se.sh1re.Knower.Path.XPath;
+import se.sh1re.Knower.models.Path.PathValidator;
+import se.sh1re.Knower.models.Path.XPath;
 import se.sh1re.Knower.driver.Safari;
 import se.sh1re.Knower.models.model.Player;
 import se.sh1re.Knower.models.repository.PlayerRepo;
@@ -27,8 +27,10 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class playerController {
 
-    private static final String safariWebDriver = "webdriver.safari.driver";
-    private static final String safariWebDriverPath = "/usr/bin/safaridriver";
+
+    private static final String safariWebDriver = "webdriver.chrome.driver";
+    private static final String safariWebDriverPath = "C:\\ws\\chromedriver_win32\\chromedriver.exe";
+
     @Autowired
     private PlayerService playerService;
     private Safari safari;
@@ -62,8 +64,12 @@ public class playerController {
 
         while (StartSelenium)
             try {
-                safari = new Safari();
+
                 System.setProperty(safariWebDriver, safariWebDriverPath);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                safari = new Safari(options);
+
                 playerName = playerName.strip();
 
                 pathValidatorService = new PathValidatorService();
@@ -165,8 +171,11 @@ public class playerController {
             while (StartSelenium)
 
                 try {
-                    safari = new Safari();
+
                     System.setProperty(safariWebDriver, safariWebDriverPath);
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--remote-allow-origins=*");
+                    safari = new Safari(options);
                     playerName[i] = playerName[i].strip();
 
                     pathValidatorService = new PathValidatorService();

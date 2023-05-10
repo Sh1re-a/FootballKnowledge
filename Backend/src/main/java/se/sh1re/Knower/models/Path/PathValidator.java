@@ -1,4 +1,4 @@
-package se.sh1re.Knower.Path;
+package se.sh1re.Knower.models.Path;
 
 public enum PathValidator {
 

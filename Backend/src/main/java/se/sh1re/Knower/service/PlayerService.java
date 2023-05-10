@@ -7,14 +7,16 @@ import se.sh1re.Knower.driver.Safari;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Locale;
 
 @Service
 @Configurable
 public class PlayerService {
 
-    private static final String safariWebDriver = "webdriver.safari.driver";
-    private static final String safariWebDriverPath = "/usr/bin/safaridriver";
+    private static final String safariWebDriver = "webdriver.chrome.driver";
+    private static final String safariWebDriverPath = "C:\\ws\\chromedriver_win32 (2)/chromedriver";
 
 
     private Safari safari;
@@ -41,7 +43,7 @@ public class PlayerService {
         return personFullName;
     }
     public LocalDate getPersonBirthDate(String personBirthDate) {
-        personBirthDate = personBirthDate.replaceAll("\\s+","");
+
         personBirthDate = personBirthDate.replace("\u00a0","");
 
         int firstCheck = 0;
@@ -49,16 +51,25 @@ public class PlayerService {
         for(int i = 0; i < personBirthDate.length(); i++){
             if(personBirthDate.charAt(i) == '('){
                 firstCheck = i;
-
+                personBirthDate = personBirthDate.substring(0, firstCheck);
+                personBirthDate = personBirthDate.replace("\u00a0","");
+                break;
             }
+            /*
             if(personBirthDate.charAt(i) == ')'){
                 secondCheck = i;
                 personBirthDate = personBirthDate.substring(firstCheck + 1, secondCheck);
                 break;
             }
+
+             */
         }
+        personBirthDate = personBirthDate.trim();
+        personBirthDate = personBirthDate.replace(" ", "-");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy", Locale.ENGLISH);
+        LocalDate birthdate = LocalDate.parse(personBirthDate, formatter);
 
-
+        /*
 
         String[] birthArray = personBirthDate.split("-");
         int[] birthArrayConverted = new int[birthArray.length];
@@ -66,7 +77,9 @@ public class PlayerService {
             birthArrayConverted[i] = Integer.parseInt(birthArray[i]);
         }
         LocalDate playerBirth = LocalDate.of(birthArrayConverted[0],birthArrayConverted[1],birthArrayConverted[2]);
-        return playerBirth;
+
+            */
+        return birthdate;
     }
 
     public int getPersonAge (LocalDate playerBirth){

@@ -1,13 +1,12 @@
 package se.sh1re.Knower.controller;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import se.sh1re.Knower.driver.Safari;
-import se.sh1re.Knower.Path.XPath;
+import se.sh1re.Knower.models.Path.XPath;
 import se.sh1re.Knower.models.model.Player;
 import se.sh1re.Knower.service.PlayerService;
 

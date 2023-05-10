@@ -6,17 +6,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.safari.SafariDriver;
-import se.sh1re.Knower.Path.PathValidator;
-import se.sh1re.Knower.Path.XPath;
+import se.sh1re.Knower.models.Path.PathValidator;
 import se.sh1re.Knower.driver.Safari;
 
 
-import javax.xml.bind.annotation.XmlRegistry;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 

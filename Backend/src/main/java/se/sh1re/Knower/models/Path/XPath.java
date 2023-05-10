@@ -1,4 +1,4 @@
-package se.sh1re.Knower.Path;
+package se.sh1re.Knower.models.Path;
 
 public enum XPath {
 
@@ -16,6 +16,7 @@ public enum XPath {
     birthDate {
         public String toString(){
             return "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[4]/td";
+
         }
     },
     height {
