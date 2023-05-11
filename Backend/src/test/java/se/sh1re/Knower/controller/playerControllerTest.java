@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SessionNotCreatedException;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import se.sh1re.Knower.driver.Safari;
 import se.sh1re.Knower.models.Path.XPath;
@@ -43,7 +44,9 @@ class playerControllerTest {
         try {
             System.setProperty(safariWebDriver, safariWebDriverPath);
 
-            safari = new Safari();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            safari = new Safari(options);
             playerService = new PlayerService();
             safari.getDriver().navigate().to("https://en.wikipedia.org/wiki/" + "Joshua_Kimmich");
             safari.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);

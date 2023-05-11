@@ -66,7 +66,7 @@ public class PlayerService {
         }
         personBirthDate = personBirthDate.trim();
         personBirthDate = personBirthDate.replace(" ", "-");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMMM-yyyy", Locale.ENGLISH);
         LocalDate birthdate = LocalDate.parse(personBirthDate, formatter);
 
         /*

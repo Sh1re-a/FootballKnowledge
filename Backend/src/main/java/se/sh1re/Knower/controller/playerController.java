@@ -1,5 +1,6 @@
 package se.sh1re.Knower.controller;
 
+import org.hibernate.jdbc.Expectation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.SessionNotCreatedException;
@@ -19,7 +20,9 @@ import se.sh1re.Knower.models.model.Player;
 import se.sh1re.Knower.models.repository.PlayerRepo;
 import se.sh1re.Knower.service.PathValidatorService;
 import se.sh1re.Knower.service.PlayerService;
+import se.sh1re.Knower.webconfiguration.webDriverPath;
 
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +32,13 @@ public class playerController {
 
 
     private static final String safariWebDriver = "webdriver.chrome.driver";
-    private static final String safariWebDriverPath = "C:\\ws\\chromedriver_win32\\chromedriver.exe";
+
+    // private static final String safariWebDriverPath = "C:\\ws\\chromedriver_win32\\chromedriver.exe";
+
+    webDriverPath x = new webDriverPath();
+    String safariWebDriverPath = x.safariWebDriverPath;
+
+
 
     @Autowired
     private PlayerService playerService;
@@ -141,6 +150,15 @@ public class playerController {
 
                 continue;
             }
+         catch (DateTimeParseException e) {
+            safari.tearDown();
+            Thread.sleep(2000);
+            System.out.println(e);
+            break;
+        }
+
+
+
 
 
         return null;

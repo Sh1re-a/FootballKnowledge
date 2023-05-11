@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import se.sh1re.Knower.models.Path.PathValidator;
 import se.sh1re.Knower.driver.Safari;
 
@@ -28,7 +29,9 @@ class PlayerServiceTest {
     @BeforeEach
     void setUp() {
         System.setProperty(safariWebDriver, safariWebDriverPath);
-        safariDriver = new Safari();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        safariDriver = new Safari(options);
         safariDriver.getDriver().navigate().to("https://en.wikipedia.org/wiki/Lionel_Messi");
         safariDriver.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
