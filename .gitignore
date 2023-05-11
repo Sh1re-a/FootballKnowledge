@@ -32,6 +32,11 @@ build/
 
 ### VS Code ###
 .vscode/
+.application.properties
+application.properties
+/backend/src/main/resources/application.properties
+/application.properties
+WebDriverPath.java
 
 
 webDriverPath.java
