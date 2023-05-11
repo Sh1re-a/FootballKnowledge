@@ -37,6 +37,4 @@ application.properties
 /backend/src/main/resources/application.properties
 /application.properties
 WebDriverPath.java
-
-
-webDriverPath.java
+.env
