@@ -53,7 +53,7 @@ const LandingPage = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setLoadingStatus(true);
+        setLoadingStatus(false);
       }
     };
       console.log(playerDetails)

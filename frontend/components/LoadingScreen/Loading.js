@@ -9,6 +9,10 @@ export const Loading = (props) => {
     const items = ['Sit Back', 'Relax, and Let Us Gather the Ultimate', 'Player Intel for You!'];
     const [showLoading, setShowLoading] = useState(loadingStatus);
 
+    useEffect(() => {
+        setShowLoading(loadingStatus)
+    }, [loadingStatus])
+
     
    
   return (
