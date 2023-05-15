@@ -1,0 +1,58 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    font-family: 'Bebas Neue', sans-serif;
+    
+   
+
+}
+
+.ball{
+    position: absolute;
+    top:166px;
+}
+
+.header{
+font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 70px;
+line-height: 100%;
+/* or 70px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #141E35;
+
+display: flex;
+flex-direction: column;
+margin-top: 40px;
+z-index: 2;
+
+
+}
+
+.header span {
+
+
+
+
+font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 110px;
+line-height: 100%;
+/* or 110px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #2B3D7C;
+}
