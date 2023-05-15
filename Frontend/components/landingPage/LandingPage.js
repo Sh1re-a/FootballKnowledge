@@ -56,9 +56,14 @@ const LandingPage = () => {
         setLoadingStatus(false);
       }
     };
-      console.log(playerDetails)
+      
     fetchData(playerNameFromSearch);
+    
   }, [playerNameFromSearch]);
+
+  useEffect(() => {
+    console.log(playerDetails);
+  }, [playerDetails]);
 
   return (
     <>
