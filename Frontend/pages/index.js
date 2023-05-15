@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import LandingPage from '../components/landingPage/LandingPage'
+import { Loading } from '../components/LoadingScreen/Loading'
 
 
 

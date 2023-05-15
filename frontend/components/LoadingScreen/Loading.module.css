@@ -1,0 +1,30 @@
+.loadingScreen{
+    position: absolute;
+    background: #232F59;
+    height: 100vh;
+    z-index: 5;
+    bottom: -1000px;
+    transition: bottom 1s ease-in-out;
+}
+
+.loadingScreen.active {
+    bottom: 0px;
+}
+
+
+.loadingText{
+    font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 100%;
+/* or 40px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #FFFFFF;
+margin-top: 80%;
+}

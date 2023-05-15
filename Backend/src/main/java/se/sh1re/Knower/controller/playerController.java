@@ -21,8 +21,6 @@ import se.sh1re.Knower.models.repository.PlayerRepo;
 import se.sh1re.Knower.service.PathValidatorService;
 import se.sh1re.Knower.service.PlayerService;
 import se.sh1re.Knower.webconfiguration.WebDriverPath;
-import se.sh1re.Knower.webconfiguration.WebDriverPath;
-
 
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
