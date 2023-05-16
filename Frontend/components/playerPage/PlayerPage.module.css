@@ -1,0 +1,166 @@
+.container {
+    position: absolute;
+    bottom: -1000px;
+    transition: 1s bottom  ease-in;
+}
+
+.container.active {
+    bottom: 0px;
+}
+
+.header {
+    font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 70px;
+line-height: 100%;
+/* or 70px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #141E35;
+
+display: flex;
+flex-direction: column;
+margin-top: 52px;
+}
+
+.header span {
+    font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 200px;
+line-height: 100%;
+/* or 200px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #2B3D7C;
+}
+
+.playerBox {
+    position: absolute;
+width: 390px;
+height: 545px;
+left: 0px;
+top: 299px;
+height: 792px;
+background: #EBE3DA;
+}
+
+.playerHeader { 
+    
+width: 170px;
+height: 37px;
+margin-top: 22px;
+margin-left: 14px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 22px;
+line-height: 100%;
+/* or 22px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #2A3B77;
+}
+
+.lines {
+    display: flex;
+    flex-direction: row;
+}
+
+.line1 { 
+
+width: 170px;
+height: 8px;
+margin-left: 15px;
+
+background: #2A3B77;
+}
+
+.line2{
+    width: 205px;
+height: 8px;
+
+
+background: #CDB9AC;;
+}
+
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+    row-gap: 19px;
+    column-gap: 21px;
+    
+}
+
+.box {
+    
+width: 170px;
+height: 170px;
+display: flex;
+flex-direction: row;
+
+background: #F1EBE6;
+border: 1px solid #FFFFFF;
+overflow: hidden;
+}
+
+.text span {
+    font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 100%;
+/* or 15px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.024em;
+
+color: #2A3B77;
+
+margin-left: 12px;
+
+}
+
+
+.text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+}
+
+.text span:nth-child(2) {
+    margin-top: 4px;
+    font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+line-height: 100%;
+/* or 17px */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.024em;
+
+color: #2A3B77;
+}
+
