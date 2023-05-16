@@ -53,11 +53,14 @@ const LandingPage = () => {
         };
   
         setPlayerDetails(playerDetails);
+        setShowPlayer(true);
       } catch (error) {
         console.error(error);
+        setLoadingStatus(false);
+        setShowPlayer(false);
       } finally {
         setLoadingStatus(false);
-        setShowPlayer(true);
+        
       }
     };
       
@@ -85,7 +88,7 @@ const LandingPage = () => {
         }}
       />
       <Loading loadingStatus={loadingStatus} />
-      <PlayerPage playerDetails={playerDetails} showPlayer={showPlayer}/>
+      <PlayerPage playerDetails={playerDetails} showPlayer={showPlayer} setShowPlayer={setShowPlayer}/>
     </>
   );
 };
