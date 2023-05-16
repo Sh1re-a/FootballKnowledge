@@ -1,14 +1,24 @@
 import React from "react";
 import styles from "./PlayerPage.module.css"
 
-export const PlayerPage = () => {
+
+export const PlayerPage = (props) => {
+
+  const {showPlayer, PlayerDetails} = props;
+
   return (
-    <div className={styles.container}>
+    <div className={
+      showPlayer? 
+       `${styles.container} ${styles.active}`
+        : `${styles.container}`}
+    >
       <div className={styles.header}>
         Neymar
         <span>Junior</span>
       </div>
 
+
+      
       <div className={styles.playerBox}>
         <div className={styles.playerHeader}Personal Details>Personal Details</div>
 

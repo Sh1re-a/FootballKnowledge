@@ -3,11 +3,14 @@ import styles from "./LandingPage.module.css";
 import { SearchBar } from "./SearchBar";
 import { SearchGuide } from "./SearchGuide";
 import { Loading } from "../LoadingScreen/Loading";
+import { PlayerPage } from "../playerPage/PlayerPage";
 
 const LandingPage = () => {
   const [loadingStatus, setLoadingStatus] = useState(false);
   const [playerNameFromSearch, setPlayerNameFromSearch] = useState("");
   const [playerDetails, setPlayerDetails] = useState(null);
+
+  const [showPlayer, setShowPlayer] = useState(false);
 
   const handlePlayerDataName = (data) => {
     setPlayerNameFromSearch(data);
@@ -54,6 +57,7 @@ const LandingPage = () => {
         console.error(error);
       } finally {
         setLoadingStatus(false);
+        setShowPlayer(true);
       }
     };
       
@@ -81,6 +85,7 @@ const LandingPage = () => {
         }}
       />
       <Loading loadingStatus={loadingStatus} />
+      <PlayerPage playerDetails={playerDetails} showPlayer={showPlayer}/>
     </>
   );
 };

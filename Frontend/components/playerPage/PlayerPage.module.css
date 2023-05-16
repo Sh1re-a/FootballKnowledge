@@ -2,10 +2,13 @@
     position: absolute;
     bottom: -1000px;
     transition: 1s bottom  ease-in;
+    background: #232F59;
+    z-index: 20;
+    width: 100vw;
 }
 
 .container.active {
-    bottom: 0px;
+    top: 0px;
 }
 
 .header {

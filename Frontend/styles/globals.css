@@ -7,8 +7,9 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-family: 'Open Sans', sans-serif;
   background: #232F59;
- 
-  
+ max-height: 100vh;
+ overflow: hidden;
+
   
   
 }

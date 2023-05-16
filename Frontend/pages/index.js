@@ -14,7 +14,7 @@ export default function Home() {
       <meta name="theme-color" content="#1B256D"></meta>
     </Head>
    
-   <PlayerPage/>
+   <LandingPage/>
     
    </>
   )
