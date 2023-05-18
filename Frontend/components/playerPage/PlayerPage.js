@@ -6,6 +6,7 @@ export const PlayerPage = (props) => {
   const { showPlayer, setShowPlayer ,playerDetails } = props;
   const [boxHeight, setBoxHeight] = useState(1200);
   const [closePlayer, setClosePlayer] = useState(false);
+  const [pageShowPlayer, setPageShowPlayer] = useState(showPlayer);
 
   const getFirstName = (name) => {
     if (!name) return ""
@@ -41,23 +42,40 @@ export const PlayerPage = (props) => {
   useEffect(() => {
     if (closePlayer) {
       setShowPlayer(false);
+      setPageShowPlayer(false);
       console.log("Home clicked");
     }
   }, [closePlayer, setShowPlayer]);
 
   const handleHeightChange = (e, data) => {
-    setBoxHeight("-76px");
-    const { y } = data;
+  const { y } = data;
+  const minHeight = 900; // Minimum height
+  const maxHeight = 1100; // Maximum height
+
   // Calculate the new height based on drag position
   let newHeight = window.innerHeight - y;
-  setBoxHeight(newHeight);
+  
+  if(newHeight > minHeight && newHeight < maxHeight) { 
+    
+    return;
+  }
+
+  
   console.log(newHeight)
   };
+
+  useEffect(() => {
+    if(showPlayer){
+      setPageShowPlayer(showPlayer)
+
+    }
+}, [showPlayer])
+
 
   return (
     <div
       className={
-        showPlayer
+        pageShowPlayer
           ? `${styles.container} ${styles.active}`
           : `${styles.container}`
       }
@@ -66,7 +84,7 @@ export const PlayerPage = (props) => {
       {getFirstName(playerDetails?.name)}
         <span>{getLastName(playerDetails?.name)}</span>
       </div>
-      <Draggable axis="y" onDrag={handleHeightChange} bounds="parent" cancel={`#${styles.homeButton}`}>
+      <Draggable axis="y" onDrag={handleHeightChange}  cancel={`#${styles.homeButton}`}>
       <div className={styles.playerBox}style={{ height: boxHeight }}>
         <div className={styles.playerHeader}>Personal Details</div>
 
@@ -87,7 +105,7 @@ export const PlayerPage = (props) => {
         src="ball3.svg"
         style={{
           zIndex: 0,
-          marginLeft: '30px'
+          marginLeft: '-10px'
             
         }}
       />
@@ -103,7 +121,7 @@ export const PlayerPage = (props) => {
         src="pitch.svg"
         style={{
           zIndex: 0,
-          marginLeft: '30px',
+          marginLeft: '-15px',
           
         }}
       />
@@ -122,7 +140,7 @@ export const PlayerPage = (props) => {
           zIndex: 0,
           height: '140px',
           width: '140px',
-          marginLeft: '50px',
+          marginLeft: '-2px',
           marginTop: '10px',
         }}
       />
@@ -140,7 +158,7 @@ export const PlayerPage = (props) => {
           zIndex: 0,
           height: '140px',
           width: '140px',
-          marginLeft: '30px',
+          marginLeft: '5px',
           marginTop: '10px',
         }}
       />
@@ -157,7 +175,7 @@ export const PlayerPage = (props) => {
           zIndex: 0,
           height: '250px',
           width: '250px',
-          marginLeft: '-20px',
+          marginLeft: '-45px',
           marginTop: '-60px',
         }}
       />
@@ -171,7 +189,7 @@ export const PlayerPage = (props) => {
         className={styles.ball}
         src="playerheight.svg"
         style={{
-          zIndex: 0,marginLeft: '30px',
+          zIndex: 0,marginLeft: '-20px',
         }}
 
       />

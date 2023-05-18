@@ -4,7 +4,7 @@
     height: 100vh;
     z-index: 5;
     bottom: -1000px;
-    transition: bottom 1s ease-in-out;
+    transition: bottom 1.2s ease-in-out;
 }
 
 .loadingScreen.active {
