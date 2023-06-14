@@ -10,9 +10,7 @@ import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.sh1re.Knower.models.Path.PathValidator;
 import se.sh1re.Knower.models.Path.XPath;
 import se.sh1re.Knower.driver.Safari;
@@ -122,7 +120,11 @@ public class playerController {
 
                         playerService.getPlayersShirtNumber(safari.getDriver()
                                 .findElement(By.xpath(pathValidatorService.validateInformation
-                                        (PathValidator.ShirtNumber.toString(), safari))).getText()));
+                                        (PathValidator.ShirtNumber.toString(), safari))).getText()),
+
+                      playerService.getPlayerYouthClub(safari.getDriver()
+                        .findElement(By.xpath(pathValidatorService.validateInformation
+                                (PathValidator.FirstYouthClub.toString(), safari))).getText()));
 
 
                 safari.tearDown();
@@ -237,11 +239,12 @@ public class playerController {
 
                             playerService.getPlayersShirtNumber(safari.getDriver()
                                     .findElement(By.xpath(pathValidatorService.validateInformation
-                                            (PathValidator.ShirtNumber.toString(), safari))).getText()));
+                                            (PathValidator.ShirtNumber.toString(), safari))).getText()),
 
-
+                   playerService.getPlayerYouthClub(safari.getDriver()
+                            .findElement(By.xpath(pathValidatorService.validateInformation
+                                    (PathValidator.FirstYouthClub.toString(), safari))).getText()));
                     safari.tearDown();
-
                     Player playerDB = player;
 
 
@@ -269,6 +272,7 @@ public class playerController {
 
 
         }
+
         return players;
 
 

@@ -69,8 +69,12 @@ class playerControllerTest {
             player.setShirtNumber(playerService.getPlayersShirtNumber(safari.getDriver()
                     .findElement(By.xpath(XPath.shirtNumber.toString())).getText()));
 
+
             player.setHeight(playerService.getPlayerHeight(safari.getDriver()
                     .findElement(By.xpath(XPath.height.toString())).getText()));
+
+            player.setFirstYouthClub(playerService.getPlayerYouthClub(safari.getDriver()
+                    .findElement(By.xpath(XPath.firstYouthTeam.toString())).getText()));
 
             System.out.println(player.toString());
         }

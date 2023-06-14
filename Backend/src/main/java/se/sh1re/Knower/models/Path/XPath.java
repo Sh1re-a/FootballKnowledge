@@ -49,6 +49,11 @@ public enum XPath {
             return "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[10]/td";
         }
     },
+    firstYouthTeam{
+        public String toString(){
+            return "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody/tr[11]/td";
+        }
+    },
 
 
 

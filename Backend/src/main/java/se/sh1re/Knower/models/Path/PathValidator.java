@@ -37,6 +37,11 @@ public enum PathValidator {
             return "//*[text()='Number']";
         }
     },
+     FirstYouthClub {
+        public String toString() {
+            return "//*[text()='1992–1995']";
+        }
+    },
     tablePath {
         public String toString() {
             return "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody";

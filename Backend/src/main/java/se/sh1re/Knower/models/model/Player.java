@@ -33,13 +33,15 @@ public class Player {
     private String DatabasePlaceOfBirth;
     @Column(name = "positions")
     private String DatabasePositions;
+    @Column
+    private String firstYouthClub;
 
 
     public Player() {
     }
 
     public Player(String name, String fullName, String[] placeOfBirth,
-                  LocalDate birth, int age, double height, String currentClub, String[] positions, int shirtNumber) {
+                  LocalDate birth, int age, double height, String currentClub, String[] positions, int shirtNumber,String firstYouthClub) {
         this.name = name;
         this.fullName = fullName;
         this.placeOfBirth = placeOfBirth;
@@ -136,7 +138,13 @@ public class Player {
         DatabasePlaceOfBirth = databasePlaceOfBirth;
     }
 
+    public String getFirstYouthClub() {
+        return getFirstYouthClub();
+    }
 
+    public void setFirstYouthClub(String firstYouthClub) {
+        this.currentClub = currentClub;
+    }
 
     public void setDatabasePositions(String databasePositions) {
         DatabasePositions = databasePositions;
@@ -154,6 +162,7 @@ public class Player {
                 "currentClub='" + currentClub + '\'' + System.lineSeparator() +
                 "positions=" + Arrays.toString(positions) + System.lineSeparator() +
                 "shirtNumber=" + shirtNumber + System.lineSeparator() +
+                "firstYouthClub='" + firstYouthClub + '\'' + System.lineSeparator() +
                 '}';
     }
 }
