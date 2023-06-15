@@ -1,5 +1,7 @@
 package se.sh1re.Knower.models.Path;
 
+import se.sh1re.Knower.models.model.Player;
+
 public enum PathValidator {
 
     FullName {
@@ -37,15 +39,17 @@ public enum PathValidator {
             return "//*[text()='Number']";
         }
     },
-     FirstYouthClub {
+    FirstYouthClub {
         public String toString() {
-            return "//*[text()='1992–1995']";
+            return "//*[text()='First club']";
         }
     },
     tablePath {
         public String toString() {
             return "//*[@id=\"mw-content-text\"]/div[1]/table[1]/tbody";
-            
+
         }
-    },
+    }
 }
+
+

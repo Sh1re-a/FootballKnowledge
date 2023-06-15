@@ -139,7 +139,7 @@ public class Player {
     }
 
     public String getFirstYouthClub() {
-        return getFirstYouthClub();
+        return firstYouthClub;
     }
 
     public void setFirstYouthClub(String firstYouthClub) {

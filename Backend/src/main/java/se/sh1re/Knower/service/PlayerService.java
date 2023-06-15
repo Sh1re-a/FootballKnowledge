@@ -1,8 +1,11 @@
 package se.sh1re.Knower.service;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 import se.sh1re.Knower.driver.Safari;
+import se.sh1re.Knower.models.Path.PathValidator;
 import se.sh1re.Knower.models.model.Player;
 
 
@@ -11,6 +14,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 
 @Service
 @Configurable
@@ -24,8 +28,6 @@ public class PlayerService {
 
     public PlayerService() {
     }
-
-
 
 
     public String getPersonName(String personName) {
@@ -169,26 +171,17 @@ public class PlayerService {
 
         return shirtNumber;
     }
-    public String getPlayerYouthClub(String playersYouthClub) {
 
-
-
-
-            String error = "Element doesn't exist";
-
-            if (!playersYouthClub.equals(error)) {
-                playersYouthClub = playersYouthClub.strip();
-
-                return playersYouthClub;
-            } else {
-                return "No Club";
-            }
-
-        }
 
 
     public String setArrayToStringForDB(String[] array) {
         String stringToReturn = Arrays.toString(array);
         return stringToReturn;
     }
+
+    public String getPlayerYouthClub(Safari safari) {
+        PathValidatorService pathValidatorService = new PathValidatorService();
+        return pathValidatorService.getPlayerFirstYouthClub(safari);
+    }
+
 }
