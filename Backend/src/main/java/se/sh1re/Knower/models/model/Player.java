@@ -143,7 +143,7 @@ public class Player {
     }
 
     public void setFirstYouthClub(String firstYouthClub) {
-        this.currentClub = currentClub;
+        this.firstYouthClub = firstYouthClub;
     }
 
     public void setDatabasePositions(String databasePositions) {
